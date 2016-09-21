@@ -3,7 +3,7 @@
 ![npm](https://img.shields.io/npm/v/lg-video.svg)
 
 # Video module for [lightGallery](http://sachinchoolur.github.io/lightGallery/)
-Full featured javascript gallery. Zero dependencies.
+A customizable, modular, responsive, lightbox gallery plugin for jQuery.
 ![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightGallery/gh-pages/lightgallery.png)
 
 Main features
@@ -71,11 +71,13 @@ Docs
 -----
 [Options](http://sachinchoolur.github.io/lightGallery/docs/api.html#lg-video)
 
-Support
-----
-Use GitHub [issue tracker](https://github.com/sachinchoolur/lg-video/issues/new) in the event that you have come across a bug or glitch. It would also be very helpful if you could add a jsFiddle, which would allow you to demonstrate the problem in question.
+<!-- License
+---
 
-Use [stackoverflow](https://stackoverflow.com/search?q=lightgallery) instead of github issue tracker if you need any help with implementing lightgallery in your project or if you have any personal support requests. 
+#### Commercial license
+If you want to use lightGallery to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a lightGallery Commercial License at uplabs.com/posts/lightgallery
 
-Follow me on twitter [@sachinchoolur](https://twitter.com/sachinchoolur) for the latest news, updates about this project.
+#### Open source license
+
+If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use this project under the terms of the GPLv3. -->
 
