@@ -71,13 +71,13 @@ Docs
 -----
 [Options](http://sachinchoolur.github.io/lightGallery/docs/api.html#lg-video)
 
-<!-- License
+License
 ---
 
 #### Commercial license
-If you want to use lightGallery to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a lightGallery Commercial License at uplabs.com/posts/lightgallery
+If you want to use lightGallery to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a lightGallery Commercial License at [uplabs.com/posts/lightgallery-plugin](https://www.uplabs.com/posts/lightgallery-plugin)
 
 #### Open source license
 
-If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use this project under the terms of the GPLv3. -->
+If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use this project under the terms of the GPLv3.
 
