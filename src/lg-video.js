@@ -1,4 +1,4 @@
-(function($, window, document, undefined) {
+(function() {
 
     'use strict';
 
@@ -286,4 +286,4 @@
 
     $.fn.lightGallery.modules.video = Video;
 
-})(jQuery, window, document);
+})();
