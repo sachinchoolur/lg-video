@@ -43,7 +43,7 @@ $ npm install lg-video
 You can also directly download lg-video from github.
 
 #### CDN
-If you prefer to use a CDN you can load files via [jsdelivr](https://www.jsdelivr.com/projects/lg-thumbnail)
+If you prefer to use a CDN you can load files via [jsdelivr](https://www.jsdelivr.com/projects/lg-video)
 
 ####  Include Javascript files
 Include lg-video plugin after lightgallery.min.js.
