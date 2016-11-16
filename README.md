@@ -4,7 +4,7 @@
 
 # Video module for [lightGallery](http://sachinchoolur.github.io/lightGallery/)
 A customizable, modular, responsive, lightbox gallery plugin for jQuery.
-![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightGallery/gh-pages/lightgallery.png)
+![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightGallery/master/lib/lg.png)
 
 Main features
 ---
@@ -42,7 +42,10 @@ $ npm install lg-video
 
 You can also directly download lg-video from github.
 
-#### Include Javascript files
+#### CDN
+If you prefer to use a CDN you can load files via [jsdelivr](https://www.jsdelivr.com/projects/lg-thumbnail)
+
+####  Include Javascript files
 Include lg-video plugin after lightgallery.min.js.
 ``` html
 <body>
