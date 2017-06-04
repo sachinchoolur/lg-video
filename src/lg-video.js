@@ -43,15 +43,20 @@
                         console.error('Make sure you have included videojs');
                     }
                 } else {
-                    _this.core.$slide.eq(index).find('.lg-html5').get(0).play();
+                    if(!_this.videoLoaded) {
+                        _this.core.$slide.eq(index).find('.lg-html5').get(0).play();
+                    }
                 }
             }
         });
 
         // Set max width for video
         _this.core.$el.on('onAferAppendSlide.lg.tm', function(event, index) {
-            _this.core.$slide.eq(index).find('.lg-video-cont').css('max-width', _this.core.s.videoMaxWidth);
-            _this.videoLoaded = true;
+            var $videoCont = _this.core.$slide.eq(index).find('.lg-video-cont');
+            if (!$videoCont.hasClass('lg-has-iframe')) {
+                $videoCont.css('max-width', _this.core.s.videoMaxWidth);
+                _this.videoLoaded = true;
+            }
         });
 
         var loadOnClick = function($el) {
