@@ -1,6 +1,6 @@
-/*! lg-video - v1.0.1 - 2016-09-30
+/*! lg-video - v1.0.2 - 2017-06-04
 * http://sachinchoolur.github.io/lightGallery
-* Copyright (c) 2016 Sachin N; Licensed GPLv3 */
+* Copyright (c) 2017 Sachin N; Licensed GPLv3 */
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -63,15 +63,20 @@
                         console.error('Make sure you have included videojs');
                     }
                 } else {
-                    _this.core.$slide.eq(index).find('.lg-html5').get(0).play();
+                    if(!_this.videoLoaded) {
+                        _this.core.$slide.eq(index).find('.lg-html5').get(0).play();
+                    }
                 }
             }
         });
 
         // Set max width for video
         _this.core.$el.on('onAferAppendSlide.lg.tm', function(event, index) {
-            _this.core.$slide.eq(index).find('.lg-video-cont').css('max-width', _this.core.s.videoMaxWidth);
-            _this.videoLoaded = true;
+            var $videoCont = _this.core.$slide.eq(index).find('.lg-video-cont');
+            if (!$videoCont.hasClass('lg-has-iframe')) {
+                $videoCont.css('max-width', _this.core.s.videoMaxWidth);
+                _this.videoLoaded = true;
+            }
         });
 
         var loadOnClick = function($el) {
