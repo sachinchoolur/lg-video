@@ -128,101 +128,102 @@
             // check slide has poster
             if ($el.find('.lg-object').hasClass('lg-has-poster') && $el.find('.lg-object').is(':visible')) {
 
-            // check already video element present
-            if (!$el.hasClass('lg-has-video')) {
+                // check already video element present
+                if (!$el.hasClass('lg-has-video')) {
 
-                $el.addClass('lg-video-playing lg-has-video');
+                    $el.addClass('lg-video-playing lg-has-video');
 
-                var _src;
-                var _html;
-                var _loadVideo = function(_src, _html) {
+                    var _src;
+                    var _html;
+                    var _loadVideo = function(_src, _html) {
 
-                    $el.find('.lg-video').append(_this.loadVideo(_src, '', false, _this.core.index, _html));
+                        $el.find('.lg-video').append(_this.loadVideo(_src, '', false, _this.core.index, _html));
 
-                    if (_html) {
+                        if (_html) {
+                            if (_this.core.s.videojs) {
+                                try {
+                                    videojs(_this.core.$slide.eq(_this.core.index).find('.lg-html5').get(0), _this.core.s.videojsOptions, function() {
+                                        this.play();
+                                    });
+                                } catch (e) {
+                                    console.error('Make sure you have included videojs');
+                                }
+                            } else {
+                                _this.core.$slide.eq(_this.core.index).find('.lg-html5').get(0).play();
+                            }
+                        }
+
+                    };
+
+                    if (_this.core.s.dynamic) {
+
+                        _src = _this.core.s.dynamicEl[_this.core.index].src;
+                        _html = _this.core.s.dynamicEl[_this.core.index].html;
+
+                        _loadVideo(_src, _html);
+
+                    } else {
+
+                        _src = _this.core.$items.eq(_this.core.index).attr('href') || _this.core.$items.eq(_this.core.index).attr('data-src');
+                        _html = _this.core.$items.eq(_this.core.index).attr('data-html');
+
+                        _loadVideo(_src, _html);
+
+                    }
+
+                    var $tempImg = $el.find('.lg-object');
+                    $el.find('.lg-video').append($tempImg);
+
+                    // @todo loading icon for html5 videos also
+                    // for showing the loading indicator while loading video
+                    if (!$el.find('.lg-video-object').hasClass('lg-html5')) {
+                        $el.removeClass('lg-complete');
+                        $el.find('.lg-video-object').on('load.lg error.lg', function() {
+                            $el.addClass('lg-complete');
+                        });
+                    }
+
+                } else {
+
+                    var youtubePlayer = $el.find('.lg-youtube').get(0);
+                    var vimeoPlayer = $el.find('.lg-vimeo').get(0);
+                    var dailymotionPlayer = $el.find('.lg-dailymotion').get(0);
+                    var html5Player = $el.find('.lg-html5').get(0);
+                    if (youtubePlayer) {
+                        youtubePlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                    } else if (vimeoPlayer) {
+                        try {
+                            $f(vimeoPlayer).api('play');
+                        } catch (e) {
+                            console.error('Make sure you have included froogaloop2 js');
+                        }
+                    } else if (dailymotionPlayer) {
+                        dailymotionPlayer.contentWindow.postMessage('play', '*');
+
+                    } else if (html5Player) {
                         if (_this.core.s.videojs) {
                             try {
-                                videojs(_this.core.$slide.eq(_this.core.index).find('.lg-html5').get(0), _this.core.s.videojsOptions, function() {
-                                    this.play();
-                                });
+                                videojs(html5Player).play();
                             } catch (e) {
                                 console.error('Make sure you have included videojs');
                             }
                         } else {
-                            _this.core.$slide.eq(_this.core.index).find('.lg-html5').get(0).play();
+                            html5Player.play();
                         }
                     }
 
-                };
-
-                if (_this.core.s.dynamic) {
-
-                    _src = _this.core.s.dynamicEl[_this.core.index].src;
-                    _html = _this.core.s.dynamicEl[_this.core.index].html;
-
-                    _loadVideo(_src, _html);
-
-                } else {
-
-                    _src = _this.core.$items.eq(_this.core.index).attr('href') || _this.core.$items.eq(_this.core.index).attr('data-src');
-                    _html = _this.core.$items.eq(_this.core.index).attr('data-html');
-
-                    _loadVideo(_src, _html);
+                    $el.addClass('lg-video-playing');
 
                 }
-
-                var $tempImg = $el.find('.lg-object');
-                $el.find('.lg-video').append($tempImg);
-
-                // @todo loading icon for html5 videos also
-                // for showing the loading indicator while loading video
-                if (!$el.find('.lg-video-object').hasClass('lg-html5')) {
-                    $el.removeClass('lg-complete');
-                    $el.find('.lg-video-object').on('load.lg error.lg', function() {
-                        $el.addClass('lg-complete');
-                    });
-                }
-
-            } else {
-
-                var youtubePlayer = $el.find('.lg-youtube').get(0);
-                var vimeoPlayer = $el.find('.lg-vimeo').get(0);
-                var dailymotionPlayer = $el.find('.lg-dailymotion').get(0);
-                var html5Player = $el.find('.lg-html5').get(0);
-                if (youtubePlayer) {
-                    youtubePlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                } else if (vimeoPlayer) {
-                    try {
-                        $f(vimeoPlayer).api('play');
-                    } catch (e) {
-                        console.error('Make sure you have included froogaloop2 js');
-                    }
-                } else if (dailymotionPlayer) {
-                    dailymotionPlayer.contentWindow.postMessage('play', '*');
-
-                } else if (html5Player) {
-                    if (_this.core.s.videojs) {
-                        try {
-                            videojs(html5Player).play();
-                        } catch (e) {
-                            console.error('Make sure you have included videojs');
-                        }
-                    } else {
-                        html5Player.play();
-                    }
-                }
-
-                $el.addClass('lg-video-playing');
-
             }
-        }
-        }
+        };
     
         Video.prototype.destroy = function() {
             this.videoLoaded = false;
         };
 
         function onHasVideo(event, index, src, html) {
+            /*jshint validthis:true */
             var _this = this;
             _this.core.$slide.eq(index).find('.lg-video').append(_this.loadVideo(src, 'lg-object', true, index, html));
             if (html) {
@@ -245,6 +246,7 @@
         }
 
         function onAferAppendSlide(event, index) {
+            /*jshint validthis:true */
             var $videoCont = this.core.$slide.eq(index).find('.lg-video-cont');
             if (!$videoCont.hasClass('lg-has-iframe')) {
                 $videoCont.css('max-width', this.core.s.videoMaxWidth);
@@ -253,6 +255,7 @@
         }
 
         function onBeforeSlide(event, prevIndex, index) {
+            /*jshint validthis:true */
             var _this = this;
 
             var $videoSlide = _this.core.$slide.eq(prevIndex);
