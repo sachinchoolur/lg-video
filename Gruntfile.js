@@ -91,13 +91,15 @@ module.exports = function(grunt) {
             },
             gruntfile: {
                 options: {
-                    jshintrc: '.jshintrc'
+                    jshintrc: '.jshintrc',
+                    reporterOutput: ''
                 },
                 src: 'Gruntfile.js'
             },
             src: {
                 options: {
-                    jshintrc: 'src/.jshintrc'
+                    jshintrc: 'src/.jshintrc',
+                    reporterOutput: ''
                 },
                 src: ['src/**/*.js']
             }
