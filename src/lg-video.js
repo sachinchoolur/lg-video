@@ -56,6 +56,17 @@
             _this.core.$el.on('onAfterSlide.lg.tm', function(event, prevIndex) {
                 _this.core.$slide.eq(prevIndex).removeClass('lg-video-playing');
             });
+            
+            if (_this.s.core.autoplayFirstVideo) {
+                _this.core.$el.on('onAferAppendSlide.lg.tm', function (e, index) {
+                    if (!_this.core.lGalleryOn) {
+                        var $el = _this.core.$slide.eq(index);
+                        setTimeout(function () {
+                            _this.loadVideoOnclick($el);
+                        }, 100);
+                    }
+                });
+            }
         };
     
         Video.prototype.loadVideo = function(src, addClass, noPoster, index, html) {
