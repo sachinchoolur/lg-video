@@ -57,7 +57,7 @@
                 _this.core.$slide.eq(prevIndex).removeClass('lg-video-playing');
             });
             
-            if (_this.s.core.autoplayFirstVideo) {
+            if (_this.core.s.autoplayFirstVideo) {
                 _this.core.$el.on('onAferAppendSlide.lg.tm', function (e, index) {
                     if (!_this.core.lGalleryOn) {
                         var $el = _this.core.$slide.eq(index);

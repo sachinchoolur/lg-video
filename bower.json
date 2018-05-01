@@ -1,6 +1,6 @@
 {
   "name": "lg-video",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Video module for lightgallery.",
   "main": [
     "dist/lg-video.min.js"
