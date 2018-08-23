@@ -36,7 +36,7 @@
             _this.core.$el.on('hasVideo.lg.tm', onHasVideo.bind(this));
     
             // Set max width for video
-            _this.core.$el.on('onAferAppendSlide.lg.tm', onAferAppendSlide.bind(this));
+            _this.core.$el.on('onAfterAppendSlide.lg.tm', onAfterAppendSlide.bind(this));
     
             if (_this.core.doCss() && (_this.core.$items.length > 1) && (_this.core.s.enableSwipe || _this.core.s.enableDrag)) {
                 _this.core.$el.on('onSlideClick.lg.tm', function() {
@@ -58,7 +58,7 @@
             });
             
             if (_this.core.s.autoplayFirstVideo) {
-                _this.core.$el.on('onAferAppendSlide.lg.tm', function (e, index) {
+                _this.core.$el.on('onAfterAppendSlide.lg.tm', function (e, index) {
                     if (!_this.core.lGalleryOn) {
                         var $el = _this.core.$slide.eq(index);
                         setTimeout(function () {
@@ -256,7 +256,7 @@
             }
         }
 
-        function onAferAppendSlide(event, index) {
+        function onAfterAppendSlide(event, index) {
             /*jshint validthis:true */
             var $videoCont = this.core.$slide.eq(index).find('.lg-video-cont');
             if (!$videoCont.hasClass('lg-has-iframe')) {
