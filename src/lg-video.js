@@ -167,7 +167,7 @@
                                         this.play();
                                     });
                                 } catch (e) {
-                                    console.error('Make sure you have included videojs');
+                                    console.error('lightGallery:- Make sure you have included videojs');
                                 }
                             } else {
                                 _this.core.$slide.eq(_this.core.index).find('.lg-html5').get(0).play();
@@ -228,7 +228,7 @@
                             try {
                                 videojs(html5Player).play();
                             } catch (e) {
-                                console.error('Make sure you have included videojs');
+                                console.error('lightGallery:- Make sure you have included videojs');
                             }
                         } else {
                             html5Player.play();
@@ -258,7 +258,7 @@
                             }
                         });
                     } catch (e) {
-                        console.error('Make sure you have included videojs');
+                        console.error('lightGallery:- Make sure you have included videojs');
                     }
                 } else {
                     if(!_this.videoLoaded && _this.core.s.autoplayFirstVideo) {
@@ -305,7 +305,7 @@
                     try {
                         videojs(html5Player).pause();
                     } catch (e) {
-                        console.error('Make sure you have included videojs');
+                        console.error('lightGallery:- Make sure you have included videojs');
                     }
                 } else {
                     html5Player.pause();
