@@ -1,4 +1,4 @@
-/*! lg-video - v1.4.0-beta.0 - October-09-2020
+/*! lg-video - v1.4.0 - November-07-2020
 * http://sachinchoolur.github.io/lightGallery
 * Copyright (c) 2020 Sachin N; Licensed GPLv3 */
 
